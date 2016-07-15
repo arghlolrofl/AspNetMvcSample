@@ -1,0 +1,103 @@
+﻿@model CrossNtErp.Web.Areas.Admin.Models.AppUserViewModel
+@{
+    ViewBag.Title = Localization.Edit;
+}
+
+<h2>@Localization.Edit</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@{ String.Format("{0} {1}", Localization.User, Model.UserName); }</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+        @Html.LabelFor(model => model.EmailConfirmed, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EmailConfirmed, new { htmlAttributes = new { @class = "form-control readonly-checkbox", disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.EmailConfirmed, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h4>@Localization.AssignedRoles</h4>
+                <table id="roles-table" class="table roles-table">
+                    @for (int i = 0; i < Model.AssignedRoles.Count; i++) {
+                            <tr>
+                                <td class="hidden"><input type="hidden" class="first-input" id="@Html.Raw("Roles_" + i + "__RoleId")" name="@Html.Raw("Roles[" + i + "].RoleId")" value="@Model.AssignedRoles[i].Id"/>@Model.AssignedRoles[i].Id</td>
+                                <td><input type="checkbox" class="selected-role" /></td>
+                                <td><input type="hidden" class="last-input" id="@Html.Raw("Roles_" + i + "__Name")" name="@Html.Raw("Roles[" + i + "].Name")" value="@Model.AssignedRoles[i].Name"/>@Model.AssignedRoles[i].Name</td>
+                            </tr>
+                        }
+                    
+                </table>
+            </div>
+
+            <div class="col-md-1" style="margin-top: 35px;">
+                <p><a href="#" class="btn btn-default" onclick="javascript: addRoles();">&lt;&lt;</a></p>
+                <p><a href="#" class="btn btn-default" onclick="javascript: removeRoles();">&gt;&gt;</a></p>
+            </div>
+
+            <div class="col-md-3">
+                <h4>@Localization.AvailableRoles</h4>
+                <table id="available-roles-table" class="table roles-table">
+                    @for (int i = 0; i < Model.AvailableRoles.Count; i++) {
+                            <tr>
+                                <td class="hidden"><input type="hidden" class="first-input" value="@Model.AvailableRoles[i].Id"/>@Model.AvailableRoles[i].Id</td>
+                                <td><input type="checkbox" class="selected-role" /></td>
+                                <td><input type="hidden" class="last-input" value="@Model.AvailableRoles[i].Name"/>@Model.AvailableRoles[i].Name</td>
+                            </tr>
+                        }
+                    
+                </table>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Localization.Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink(Localization.BackToIndex, "Index")
+</div>
+
+@section Scripts {
+    <script src="~/Areas/Admin/Scripts/users-edit.js"></script>    
+}
+
+@section Subnav {
+    @{ Html.RenderPartial("_AreaNavigation"); }
+}

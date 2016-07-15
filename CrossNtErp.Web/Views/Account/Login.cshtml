@@ -1,0 +1,131 @@
+﻿@using CrossNtErp.Web.Models.Account
+@model LoginViewModel
+@{
+    ViewBag.Title = Localization.Login;
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@Localization.Login" class="btn btn-default" />
+                    </div>
+                </div>
+                <p>
+                    @Html.ActionLink(Localization.RegisterAsNewUser, "Register")
+                </p>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+    @*<div class="col-md-4">
+            <section id="socialLoginForm">
+                Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>*@
+</div>
+
+@if (ViewBag.DebugMode != null) {
+    <div id="dialog-form" title="DEBUG Login As ...">
+        <p>
+            <input type="button" name="Admin" id="adminLoginButton" value="Admin" class="text ui-widget-content ui-corner-all" />
+        </p>
+        <p>
+            <input type="button" name="Default" id="defaultLoginButton" value="Default" class="text ui-widget-content ui-corner-all" />
+        </p>
+        <p>
+            <input type="button" name="Outlaw" id="outlawLoginButton" value="Outlaw" class="text ui-widget-content ui-corner-all" />
+        </p>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @if (ViewBag.DebugMode != null) {
+        @Scripts.Render("~/bundles/jquery-ui")
+
+        <script>
+            $(document).ready(function () {
+                var div = $('#dialog-form');
+
+                var dialog = $(div).dialog({
+                    autoOpen: true,
+                    height: 165,
+                    width: 150,
+                    modal: true
+                });
+
+                $('#adminLoginButton').on('click', function () { dialog.dialog("close"); silentLogin("Admin"); });
+                $('#defaultLoginButton').on('click', function () { dialog.dialog("close"); silentLogin("Default"); });
+                $('#outlawLoginButton').on('click', function () { dialog.dialog("close"); silentLogin("Outlaw"); });
+
+                dialog.dialog("open");
+            });
+
+            function onSuccess(data, textStatus, jqXHR) {
+                window.location.href = "/";
+            }
+
+            function silentLogin(username) {
+                var data = {
+                    username: "",
+                    password: ""
+                };
+
+                switch (username) {
+                    case 'Admin':
+                        data.username = "Admin";
+                        data.password = "Admin@123456";
+                        break;
+                    case 'Default':
+                        data.username = "Default";
+                        data.password = "Test123!";
+                        break;
+                    case 'Outlaw':
+                        data.username = "Outlaw";
+                        data.password = "Test123!";
+                        break;
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Account/SilentLogin',
+                    data: data,
+                    success: onSuccess
+                });
+            }
+        </script>
+    }
+}

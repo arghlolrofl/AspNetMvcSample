@@ -1,0 +1,50 @@
+﻿@model List<CrossNtErp.Web.Areas.Admin.Models.AppUserViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Localization.ListOfUsers</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().PhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var user in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => user.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.PhoneNumber)
+            </td>
+            <td>
+                @Html.ActionLink(Localization.Edit, "Edit", new { id = user.Id }) |
+                @Html.ActionLink(Localization.Delete, "Delete", new { id = user.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Subnav {
+    @{ Html.RenderPartial("_AreaNavigation"); }
+}

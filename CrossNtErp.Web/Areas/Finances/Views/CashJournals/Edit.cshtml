@@ -1,0 +1,109 @@
+﻿@using CrossNtErp.Web.Areas.Finances.Models
+@model CrossNtErp.Web.Areas.Finances.Models.CashJournalViewModel
+
+@{
+    ViewBag.Title = Localization.Edit;
+}
+
+<h2>@Localization.Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>@Localization.CashJournal</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.CurrentBalance, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div @Html.Raw(Model.CurrentBalance < 0 ? "class='negative-currency-value-text-color col-md-10'" : "class='positive-currency-value-text-color col-md-10'") style="margin-top: 7px;">
+                @Html.DisplayFor(model => model.CurrentBalance, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Localization.Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<div>
+    <h4>@Localization.CashJournalEntries</h4>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().ProcessDescription)</th>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().Date)</th>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().PrePaidTax)</th>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().CashBalance)</th>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().DocumentName)</th>
+            <th>@Html.ActionLink(Localization.Create, "Create", "CashJournalEntries", new { area = "Finances", id = Model.Id }, new { @class = "btn btn-default" })</th>
+        </tr>
+        @foreach (CashJournalEntryViewModel entry in Model.Entries) {
+            <tr>                
+                <td>@Html.DisplayFor(model => entry.Id)</td>
+                <td>@Html.DisplayFor(model => entry.ProcessDescription)</td>
+                <td>@Html.DisplayFor(model => entry.Date)</td>
+                <td>@Html.DisplayFor(model => entry.PrePaidTax)</td>
+                <td @Html.Raw(entry.CashBalance < 0 ? "class='negative-currency-value-text-color'" : "class='positive-currency-value-text-color'")>
+                    @Html.DisplayFor(model => entry.CashBalance)
+                </td>
+                <td>@Html.DisplayFor(model => entry.DocumentName)</td>
+                <td>@Html.ActionLink(Localization.Edit, "Edit", "CashJournalEntries", new { area = "Finances", id = entry.Id }, null) | @Html.ActionLink(Localization.Delete, "Delete", "CashJournalEntries", new { area = "Finances", id = entry.Id }, null)</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div>
+    @Html.ActionLink(Localization.BackToIndex, "Index")
+</div>
+
+@section Scripts {    
+    @Scripts.Render("~/bundles/jquery-ui")
+    @Scripts.Render("~/bundles/jquery-cookie")
+    @Scripts.Render("~/bundles/datepicker-init")
+}
+
+@section Subnav {
+    @{ Html.RenderPartial("_AreaNavigation"); }
+}

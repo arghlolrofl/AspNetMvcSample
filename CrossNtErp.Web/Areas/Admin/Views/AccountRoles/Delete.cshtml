@@ -1,0 +1,32 @@
+﻿@model CrossNtErp.Web.Areas.Admin.Models.AppRoleViewModel
+@{
+    ViewBag.Title = Localization.Delete;
+}
+
+<h2>@Localization.Delete</h2>
+
+<div>
+    <h4>@Localization.AccountRole</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Id)</dt>
+        <dd>@Html.DisplayFor(model => model.Id)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+        <dd>@Html.DisplayFor(model => model.Name)</dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="@Localization.Delete" class="btn btn-default" /> |
+            @Html.ActionLink(Localization.BackToIndex, "Index")
+        </div>
+    }
+</div>
+
+@section Subnav {
+    @{ Html.RenderPartial("_AreaNavigation"); }
+}
+

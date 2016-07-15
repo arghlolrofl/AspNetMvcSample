@@ -1,0 +1,57 @@
+﻿@model CrossNtErp.Shared.Entities.Finances.CashJournalEntry
+
+@{
+    ViewBag.Title = Localization.Delete;
+}
+
+<h2>@Localization.Delete</h2>
+
+<h3>@Localization.AreYouSure</h3>
+<div>
+    <h4>@Localization.CashJournalEntry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Journal.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Journal.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DocumentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcessDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProcessDescription)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="@Localization.Delete" class="btn btn-default" /> |
+            @Html.ActionLink(@Localization.BackToIndex, "Index")
+        </div>
+    }
+</div>
+
+
+@section Subnav {
+    @{ Html.RenderPartial("_AreaNavigation"); }
+}

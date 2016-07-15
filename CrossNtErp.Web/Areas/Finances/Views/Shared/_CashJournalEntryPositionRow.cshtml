@@ -1,0 +1,25 @@
+﻿@model CrossNtErp.Web.Areas.Finances.Models.CashJournalEntryPositionViewModel
+<tr>
+    <td class="hidden">
+        @Html.HiddenFor(m => m.Id, new { Id = "Positions_" + Model.Index + "__Id", Name = "Positions[" + Model.Index + "].Id" })
+        @Html.HiddenFor(m => m.Index, new { Id = "Positions_" + Model.Index + "__Index", Name = "Positions[" + Model.Index + "].Index" })
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", Id = "Positions_" + Model.Index + "__Description", Name = "Positions[" + Model.Index + "].Description" })
+        @Html.ValidationMessage("Positions[" + Model.Index + "].Description", new { @class = "text-danger" })
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.Delta, new { @class = "form-control", Id = "Positions_" + Model.Index + "__Delta", Name = "Positions[" + Model.Index + "].Delta" })
+        @Html.ValidationMessage("Positions[" + Model.Index + "].Delta", new { @class = "text-danger" })
+    </td>
+    <td>
+        @Html.DropDownListFor(m => m.TaxRateId, (IEnumerable<SelectListItem>)ViewBag.TaxRates, "-- Select --", new { @class = "form-control", Id = "Positions_" + Model.Index + "__TaxRateId", Name = "Positions[" + Model.Index + "].TaxRateId" })
+        @Html.ValidationMessage("Positions[" + Model.Index + "].TaxRateId", new { @class = "text-danger" })
+    </td>
+    <td>        
+        @Html.TextBoxFor(m => m.PrePaidTax, new { @class = "form-control", disabled = "disabled", style = "width:150px;text-align:center;", Id = "Positions_" + Model.Index + "__PrePaidTax", Name = "Positions[" + Model.Index + "].PrePaidTax" })
+    </td>
+    <td>        
+        <input type="button" class="btn btn-default" onclick="@Html.Raw("javascript: removePosition(" + Model.Index + ");")" value="@Localization.Delete" />
+    </td>
+</tr>

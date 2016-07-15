@@ -1,0 +1,26 @@
+﻿<script>
+    function setFileInfo(filename) {
+        var displayTarget = document.getElementById('file-input');
+        var realTarget = document.getElementById('DocumentName');
+
+        if (typeof filename == 'undefined')
+            displayTarget.value = document.getElementById('file-select').value;
+        else
+            displayTarget.value = filename;
+
+        realTarget.value = displayTarget.value;
+    }
+</script>
+<div class="form-group" id="document-form-group" style="display: none;">
+    <input id="DocumentName" name="DocumentName" type="hidden" />
+    <label for="file" class="control-label col-md-2">@Localization.Document</label>
+    <div class="col-md-10" style="margin-top: -9px;">
+        <p style="display:inline-flex">
+            <input id="file-input" disabled="disabled" type="text" class="form-control" style="width: 283px;">
+        </p>
+        <div class="file-container btn btn-primary" style="margin-top: 7px;">
+            <span>. . .</span>
+            <input id="file-select" class="file-input" type="file" onchange="javascript: setFileInfo();">
+        </div>
+    </div>
+</div>

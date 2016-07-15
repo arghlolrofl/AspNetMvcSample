@@ -1,0 +1,67 @@
+﻿@using CrossNtErp.Web.Areas.Finances.Models
+@model CrossNtErp.Web.Areas.Finances.Models.CashJournalViewModel
+
+@{
+    ViewBag.Title = Localization.Details;
+}
+
+<h2>@Localization.Details</h2>
+
+<div>
+    <h4>@Localization.CashJournal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Title)</dt>
+        <dd>@Html.DisplayFor(model => model.Title)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.StartDate)</dt>
+        <dd>@Html.DisplayFor(model => model.StartDate)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.EndDate)</dt>
+        <dd>@Html.DisplayFor(model => model.EndDate)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Description)</dt>
+        <dd>@Html.DisplayFor(model => model.Description)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.CurrentBalance)</dt>
+        <dd @Html.Raw(Model.CurrentBalance < 0 ? "class='negative-currency-value-text-color'" : "class='positive-currency-value-text-color'")>
+            @Html.DisplayFor(model => model.CurrentBalance)
+        </dd>
+    </dl>
+
+    <br />
+    <br />
+
+    <h4>@Localization.CashJournalEntries</h4>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().Date)</th>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().ProcessDescription)</th>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().CashBalance)</th>
+            <th>@Html.DisplayNameFor(model => model.Entries.FirstOrDefault().DocumentName)</th>
+            <!--<th />-->
+        </tr>
+        @foreach (CashJournalEntryViewModel entry in Model.Entries) {
+            <tr>                
+                <td>@Html.DisplayFor(model => entry.Id)</td>
+                <td>@Html.DisplayFor(model => entry.Date)</td>
+                <td>@Html.DisplayFor(model => entry.ProcessDescription)</td>
+                <td @Html.Raw(entry.CashBalance < 0 ? "class='negative-currency-value-text-color'" : "class='positive-currency-value-text-color'")>
+                    @Html.DisplayFor(model => entry.CashBalance)
+                </td>
+                <td>@Html.DisplayFor(model => entry.DocumentName)</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink(@Localization.Edit, "Edit", new { id = Model.Id }) |
+    @Html.ActionLink(@Localization.BackToIndex, "Index")
+</p>
+
+
+@section Subnav {
+    @{ Html.RenderPartial("_AreaNavigation"); }
+}

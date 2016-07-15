@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = Localization.HomePage;
+}
+
+<div class="jumbotron">
+    <h1>@Localization.ApplicationTitle</h1>
+    <p class="lead">@Localization.ApplicationSubTitle</p>
+</div>
+<div class="row">
+    <hr>
+    <h1>@Localization.ModuleOverview</h1>
+</div>
+
+<div class="row">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 module-tile">
+            <h2>@Localization.Modules_Finances</h2>
+            <div>
+                @Localization.Modules_Finances_Description
+                <br><br>
+                <p>@Html.ActionLink(Localization.CashJournals, "Index", "CashJournals", new { area = "Finances" }, new { @class = "btn btn-default" })</p>
+                <p>@Html.ActionLink(Localization.TaxRates, "Index", "TaxRates", new { area = "Finances" }, new { @class = "btn btn-default" })</p>
+            </div>
+        </div>
+        @if (User.IsInRole("Admin")) {
+            <div id="admin-tile" class="col-lg-4 col-md-6 col-sm-12 module-tile">
+                <h2>@Localization.Modules_Administration</h2>
+                <div>
+                    @Localization.Modules_Administration_Description  @*Administration and Management:*@
+                    <br><br>
+                    <p>@Html.ActionLink(Localization.RolesManagement, "Index", "AccountRoles", new { area = "Admin" }, new { @class = "btn btn-default" })</p>
+                    <p>@Html.ActionLink(Localization.UserManagement, "Index", "Users", new { area = "Admin" }, new { @class = "btn btn-default" })</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

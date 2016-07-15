@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Language" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Englisch</value>
+  </data>
+  <data name="German" xml:space="preserve">
+    <value>Deutsch</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Cross NT ERP</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Über</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrieren</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hallo</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="ErrorDuringRequest" xml:space="preserve">
+    <value>Beim Bearbeiten der Anfrage ist ein Fehler aufgetreten</value>
+  </data>
+  <data name="LockedOut" xml:space="preserve">
+    <value>Gesperrt</value>
+  </data>
+  <data name="LockedOutMessage" xml:space="preserve">
+    <value>Dieses Konto wurde gesperrt, bitte versuchen Sie es zu einem späteren Zeitpunkt erneut</value>
+  </data>
+  <data name="RegisterAsNewUser" xml:space="preserve">
+    <value>Als neuer Benutzer registrieren</value>
+  </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Ein neues Konto erstellen</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Neu erstellen</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Erstellen</value>
+  </data>
+  <data name="AccountRole" xml:space="preserve">
+    <value>Benutzerrolle</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="BackToIndex" xml:space="preserve">
+    <value>Zurück zur Übersicht</value>
+  </data>
+  <data name="ListOfUsers" xml:space="preserve">
+    <value>Liste von Benutzern</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Benutzer</value>
+  </data>
+  <data name="AssignedRoles" xml:space="preserve">
+    <value>Zugeordnete Rollen</value>
+  </data>
+  <data name="AvailableRoles" xml:space="preserve">
+    <value>Verfügbare Rollen</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Sind Sie sicher?</value>
+  </data>
+  <data name="TaxRate" xml:space="preserve">
+    <value>Steuersatz</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Übersicht</value>
+  </data>
+  <data name="ListOfCashJournals" xml:space="preserve">
+    <value>Liste von Kassenbüchern</value>
+  </data>
+  <data name="CashJournal" xml:space="preserve">
+    <value>Kassenbuch</value>
+  </data>
+  <data name="CashJournals" xml:space="preserve">
+    <value>Kassenbücher</value>
+  </data>
+  <data name="CashJournalEntries" xml:space="preserve">
+    <value>Kassenbucheinträge</value>
+  </data>
+  <data name="CashJournalEntry" xml:space="preserve">
+    <value>Kassenbucheintrag</value>
+  </data>
+  <data name="Positions" xml:space="preserve">
+    <value>Positionen</value>
+  </data>
+  <data name="AddPosition" xml:space="preserve">
+    <value>Position hinzufügen</value>
+  </data>
+  <data name="RemovePosition" xml:space="preserve">
+    <value>Position löschen</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="P_Delta" xml:space="preserve">
+    <value>Delta</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Zurück</value>
+  </data>
+  <data name="ApplicationSubTitle" xml:space="preserve">
+    <value>Die modulare ERP-Lösung für jede Plattform.</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Startseite</value>
+  </data>
+  <data name="TaxRates" xml:space="preserve">
+    <value>Steuersätze</value>
+  </data>
+  <data name="ModuleOverview" xml:space="preserve">
+    <value>Modulübersicht</value>
+  </data>
+  <data name="Modules_Finances" xml:space="preserve">
+    <value>Finanzen</value>
+  </data>
+  <data name="Modules_Finances_Description" xml:space="preserve">
+    <value>Inhalt des Finanzmoduls:</value>
+  </data>
+  <data name="Modules_Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Modules_Administration_Description" xml:space="preserve">
+    <value>Administration und Management:</value>
+  </data>
+  <data name="RolesManagement" xml:space="preserve">
+    <value>Rollenverwaltung</value>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>Benutzerverwaltung</value>
+  </data>
+  <data name="Germany" xml:space="preserve">
+    <value>Deutschland</value>
+  </data>
+  <data name="Abbreviation_Phone" xml:space="preserve">
+    <value>Tel:</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="Marketing" xml:space="preserve">
+    <value>Vertrieb</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="P_Username" xml:space="preserve">
+    <value>Benutzername</value>
+  </data>
+  <data name="V_Username_Required" xml:space="preserve">
+    <value>Benutzername darf nicht leer sein</value>
+  </data>
+  <data name="V_Username_Length" xml:space="preserve">
+    <value>Benutzername muss zwischen 4 und 32 Zeichen lang sein</value>
+  </data>
+  <data name="P_Password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="V_Password_Length" xml:space="preserve">
+    <value>Passwort muss zwischen 4 und 32 Zeichen enthalten</value>
+  </data>
+  <data name="V_Password_Required" xml:space="preserve">
+    <value>Passwort darf nicht leer sein</value>
+  </data>
+  <data name="P_RememberMe" xml:space="preserve">
+    <value>Benutzer merken</value>
+  </data>
+  <data name="P_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="V_Email_Required" xml:space="preserve">
+    <value>Email darf nicht leer sein</value>
+  </data>
+  <data name="P_Password_Confirm" xml:space="preserve">
+    <value>Passwortbestätigung</value>
+  </data>
+  <data name="V_Password_Compare" xml:space="preserve">
+    <value>Passwörter stimmen nicht überein</value>
+  </data>
+  <data name="AccountRoles" xml:space="preserve">
+    <value>Rollen</value>
+  </data>
+  <data name="RoleNameExistsAlready" xml:space="preserve">
+    <value>Eine Rolle mit diesem Namen existiert bereits</value>
+  </data>
+  <data name="P_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="V_Name_Required" xml:space="preserve">
+    <value>Name darf nicht leer sein</value>
+  </data>
+  <data name="V_Name_Length" xml:space="preserve">
+    <value>Name darf maximal 96 Zeichen enthalten</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Benutzer</value>
+  </data>
+  <data name="P_PhoneNumber" xml:space="preserve">
+    <value>Telefonnummer</value>
+  </data>
+  <data name="V_Category_Required" xml:space="preserve">
+    <value>Kategorie darf nicht leer sein</value>
+  </data>
+  <data name="V_Value_Required" xml:space="preserve">
+    <value>Wert darf nicht leer sein</value>
+  </data>
+  <data name="P_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="V_Description_Length" xml:space="preserve">
+    <value>Beschreibung darf nicht länger als 255 Zeichen enthalten</value>
+  </data>
+  <data name="V_Required" xml:space="preserve">
+    <value>Darf nicht leer sein</value>
+  </data>
+  <data name="V_Length_Max_255" xml:space="preserve">
+    <value>Darf nicht mehr als 255 Zeichen enthalten</value>
+  </data>
+  <data name="P_StartDate" xml:space="preserve">
+    <value>Startdatum</value>
+  </data>
+  <data name="P_EndDate" xml:space="preserve">
+    <value>Enddatum</value>
+  </data>
+  <data name="P_CurrentBalance" xml:space="preserve">
+    <value>Aktuelle Bilanz</value>
+  </data>
+  <data name="P_Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="P_DocumentName" xml:space="preserve">
+    <value>Dokumentenname</value>
+  </data>
+  <data name="P_ProcessDescription" xml:space="preserve">
+    <value>Vorgangsbeschreibung</value>
+  </data>
+  <data name="P_CashBalance" xml:space="preserve">
+    <value>Bilanz</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Dokument</value>
+  </data>
+  <data name="Delta" xml:space="preserve">
+    <value>Delta</value>
+  </data>
+  <data name="HasDocumentAttached" xml:space="preserve">
+    <value>Dokument anhängen</value>
+  </data>
+  <data name="NoTaxRateSelected" xml:space="preserve">
+    <value>Fehlende Auswahl</value>
+  </data>
+  <data name="MissingInputAsterisk" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="V_MissingInput" xml:space="preserve">
+    <value>Fehlende Eingabe</value>
+  </data>
+  <data name="CurrencyPattern" xml:space="preserve">
+    <value>^-?\d{1,3}\.(\d{3}[\.]?)+?(,\d{1,2})?$|^-?\d{1,}(,\d{1,2})?$</value>
+  </data>
+  <data name="V_InvalidCurrencyFormat" xml:space="preserve">
+    <value>Ungültiges Währungsformat</value>
+  </data>
+  <data name="CurrencySymbol" xml:space="preserve">
+    <value>€</value>
+  </data>
+  <data name="Module" xml:space="preserve">
+    <value>Modul</value>
+  </data>
+  <data name="PrePaidTax" xml:space="preserve">
+    <value>Vorsteuer</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="InvalidPercentageValue" xml:space="preserve">
+    <value>Ungültiger Prozentwert</value>
+  </data>
+  <data name="PercentageValue" xml:space="preserve">
+    <value>Wert %</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Wert</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Aktion</value>
+  </data>
+</root>

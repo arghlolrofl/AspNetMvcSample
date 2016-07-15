@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CrossNtErp.Web.Areas.Finances.Models.TaxRateViewModel>
+
+@{
+    ViewBag.Title = Localization.TaxRates;
+}
+
+<h2>@Localization.TaxRates</h2>
+
+@{
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 5, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+    grid.Pager(WebGridPagerModes.NextPrevious);
+}
+
+<div id="gridContent" class="row">
+    @grid.GetHtml(
+        //caption: "Overview",
+        tableStyle: "webGrid col-md-12",
+        //headerStyle: "header",
+        alternatingRowStyle: "alt",
+        selectedRowStyle: "select",
+        columns: grid.Columns(
+            grid.Column("Id", "Id"),
+            grid.Column("Category", Localization.Category),
+            grid.Column("Value", Localization.Value),
+            grid.Column("Description", Localization.Description, style: "description"),
+            grid.Column(format: (item) => {
+                var links = String.Format("{0} | {1} | {2}",
+                    Html.ActionLink(Localization.Details, "Details", new { id = item.Id }),
+                    Html.ActionLink(Localization.Edit, "Edit", new { id = item.Id }),
+                    Html.ActionLink(Localization.Delete, "Delete", new { id = item.Id }));
+
+                return Html.Raw(links);
+            })
+        )
+    )
+    @*if (grid.HasSelection) {
+            product = (WebGridSampleApplication.Models.Product)grid.Rows[grid.SelectedIndex].Value;
+            <b>Id</b> @product.Id<br />
+            <b>Name</b>  @product.Name<br />
+            <b>Description</b> @product.Description<br />
+            <b>Quantity</b> @product.Quantity<br />
+        }*@
+</div>
+
+
+<p>
+    @Html.ActionLink(Localization.CreateNew, "Create", null, new { @class="btn btn-default", style = "float: right; margin-top: 10px; margin-right: -15px;" })
+</p>
+
+
+@section Subnav {
+    @{ Html.RenderPartial("_AreaNavigation"); }
+}

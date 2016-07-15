@@ -1,0 +1,11 @@
+﻿<li class="dropdown">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">@Localization.Module <b class="caret"></b></a>
+    <ul class="dropdown-menu submodule-selector">
+        <li>
+            @Html.ActionLink(Localization.AccountRoles, "Index", "AccountRoles", new { area = "Admin" }, null)
+        </li>
+        <li>
+            @Html.ActionLink(Localization.Users, "Index", "Users", new { area = "Admin" }, null)
+        </li>
+    </ul>
+</li>

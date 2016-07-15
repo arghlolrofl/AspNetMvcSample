@@ -1,0 +1,41 @@
+﻿@model List<CrossNtErp.Web.Areas.Admin.Models.AppRoleViewModel>
+@{
+    ViewBag.Title = Localization.AccountRoles;
+}
+
+<h2>@Localization.AccountRoles</h2>
+<p>
+    @Html.ActionLink(Localization.CreateNew, "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var role in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => role.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => role.Name)
+            </td>
+            <td>
+                @Html.ActionLink(Localization.Edit, "Edit", new { id = role.Id }) |
+                @Html.ActionLink(Localization.Delete, "Delete", new { id = role.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Subnav {
+    @{ Html.RenderPartial("_AreaNavigation"); }
+}

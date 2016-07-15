@@ -1,0 +1,55 @@
+﻿@model CrossNtErp.Shared.Entities.Finances.CashJournalEntry
+
+@{
+    ViewBag.Title = Localization.Details;
+}
+
+<h2>@Localization.Details</h2>
+
+<div>
+    <h4>@Localization.CashJournalEntry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Journal.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Journal.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcessDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcessDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink(Localization.Edit, "Edit", new { id = Model.Id }) |
+    @Html.ActionLink(Localization.BackToIndex, "Index")
+</p>
+
+
+@section Subnav {
+    @{ Html.RenderPartial("_AreaNavigation"); }
+}

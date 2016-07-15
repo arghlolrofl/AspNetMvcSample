@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<address>
+    NT Innovation Company GmbH<br />
+    09112 Chemnitz<br />
+    @Localization.Germany<br />
+    <abbr title="@Localization.Phone">@Localization.Abbreviation_Phone</abbr> 
+    0371 5347427
+</address>
+
+<address>
+    <strong>@Localization.Support:</strong>   <a href="mailto:hendryk.irmischer@innovation-company.de?subject=Support">Send Mail</a><br />
+    <strong>@Localization.Marketing:</strong> <a href="mailto:hendryk.irmischer@innovation-company.de?subject=Marketing">Send Mail</a>
+</address>
